@@ -6,7 +6,7 @@
   <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
   
   <link href="http://sofar1994.github.io/"/>
-  <updated>2021-04-16T05:38:09.854Z</updated>
+  <updated>2021-04-16T07:36:43.113Z</updated>
   <id>http://sofar1994.github.io/</id>
   
   <author>
@@ -21,16 +21,14 @@
     <link href="http://sofar1994.github.io/2021/04/16/git-commands/"/>
     <id>http://sofar1994.github.io/2021/04/16/git-commands/</id>
     <published>2021-04-16T04:46:34.000Z</published>
-    <updated>2021-04-16T05:38:09.854Z</updated>
+    <updated>2021-04-16T07:36:43.113Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;#git常用命令&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;常用&lt;br&gt; $ git fetch –all &amp;amp;&amp;amp; git reset –hard origin/develop &amp;amp;&amp;amp; git pull  # 强拉覆盖本地&lt;br&gt; $ git remote</summary>
+    <summary type="html">&lt;h2 id=&quot;git常用命令&quot;&gt;&lt;a href=&quot;#git常用命令&quot; class=&quot;headerlink&quot; title=&quot;git常用命令&quot;&gt;&lt;/a&gt;git常用命令&lt;/h2&gt;&lt;h3 id=&quot;1-常用&quot;&gt;&lt;a href=&quot;#1-常用&quot; class=&quot;headerlink&quot;</summary>
         
       
     
