@@ -29,9 +29,9 @@
 
     <script src="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Sofar1994.github.io" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="Sofar1994.github.io" type="application/atom+xml">
 </head>
 
 
@@ -389,7 +389,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><h3 id="1-常用"><a href="#1-常用" class="headerlink" title="1. 常用"></a>1. 常用</h3><pre><code>$ git fetch --all &amp;&amp; git reset --hard origin/develop &amp;&amp; git pull  # 强拉覆盖本地
+                <h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><h3 id="1-常用"><a href="#1-常用" class="headerlink" title="1. 常用"></a>1. 常用</h3><pre class="line-numbers language-none"><code class="language-none">$ git fetch --all &amp;&amp; git reset --hard origin/develop &amp;&amp; git pull  # 强拉覆盖本地
 $ git remote add origin git@github.com:                           # 配置远程git版本库
 $ git pull origin master                                          # 下载代码及快速合并
 $ git push origin master                                          # 上传代码及快速合并
@@ -403,9 +403,10 @@ $ git log                                                         # 查看提交
 $ git config --global core.editor vim                             # 设置默认编辑器为vim（git默认用nano）
 $ git config core.ignorecase false                                # 设置大小写敏感
 $ git config --global user.name "YOUR NAME"                       # 设置用户名
-$ git config --global user.email "YOUR EMAIL ADDRESS"             # 设置邮箱
-</code></pre>
-<h3 id="2-别名-alias"><a href="#2-别名-alias" class="headerlink" title="2. 别名 alias"></a>2. 别名 alias</h3><pre><code>$ git config --global alias.br="branch"                 # 创建/查看本地分支
+$ git config --global user.email "YOUR EMAIL ADDRESS"             # 设置邮箱<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="2-别名-alias"><a href="#2-别名-alias" class="headerlink" title="2. 别名 alias"></a>2. 别名 alias</h3><pre class="line-numbers language-none"><code class="language-none">$ git config --global alias.br="branch"                 # 创建/查看本地分支
 $ git config --global alias.co="checkout"               # 切换分支
 $ git config --global alias.cb="checkout -b"            # 创建并切换到新分支
 $ git config --global alias.cm="commit -m"              # 提交
@@ -413,12 +414,12 @@ $ git config --global alias.st="status"                 # 查看状态
 $ git config --global alias.pullm="pull origin master"  # 拉取分支
 $ git config --global alias.pushm="push origin master"  # 提交分支
 $ git config --global alias.log="git log --oneline --graph --decorate --color=always" # 单行、分颜色显示记录
-$ git config --global alias.logg="git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative" # 复杂显示
-</code></pre>
-<h3 id="3-创建版本库"><a href="#3-创建版本库" class="headerlink" title="3. 创建版本库"></a>3. 创建版本库</h3><pre><code>$ git clone &lt;url&gt;                 # 克隆远程版本库
-$ git init                        # 初始化本地版本库
-</code></pre>
-<h3 id="4-修改和提交"><a href="#4-修改和提交" class="headerlink" title="4. 修改和提交"></a>4. 修改和提交</h3><pre><code>$ git status                      # 查看状态
+$ git config --global alias.logg="git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative" # 复杂显示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="3-创建版本库"><a href="#3-创建版本库" class="headerlink" title="3. 创建版本库"></a>3. 创建版本库</h3><pre class="line-numbers language-none"><code class="language-none">$ git clone &lt;url&gt;                 # 克隆远程版本库
+$ git init                        # 初始化本地版本库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="4-修改和提交"><a href="#4-修改和提交" class="headerlink" title="4. 修改和提交"></a>4. 修改和提交</h3><pre class="line-numbers language-none"><code class="language-none">$ git status                      # 查看状态
 $ git diff                        # 查看变更内容
 $ git add .                       # 跟踪所有改动过的文件
 $ git add &lt;file&gt;                  # 跟踪指定的文件
@@ -426,19 +427,19 @@ $ git mv &lt;old&gt; &lt;new&gt;              # 文件改名
 $ git rm &lt;file&gt;                   # 删除文件
 $ git rm --cached &lt;file&gt;          # 停止跟踪文件但不删除
 $ git commit -m “commit message”  # 提交所有更新过的文件
-$ git commit --amend              # 修改最后一次提交
-</code></pre>
-<h3 id="5-查看历史"><a href="#5-查看历史" class="headerlink" title="5. 查看历史"></a>5. 查看历史</h3><pre><code>$ git log                         # 查看提交历史
+$ git commit --amend              # 修改最后一次提交<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="5-查看历史"><a href="#5-查看历史" class="headerlink" title="5. 查看历史"></a>5. 查看历史</h3><pre class="line-numbers language-none"><code class="language-none">$ git log                         # 查看提交历史
 $ git log -p &lt;file&gt;               # 查看指定文件的提交历史
-$ git blame &lt;file&gt;                # 以列表方式查看指定文件的提交历史
-</code></pre>
-<h3 id="6-撤销"><a href="#6-撤销" class="headerlink" title="6. 撤销"></a>6. 撤销</h3><pre><code><pre class="line-numbers language-none"><code class="language-none">$ git reset --hard HEAD           # 撤消工作目录中所有未提交文件的修改内容
+$ git blame &lt;file&gt;                # 以列表方式查看指定文件的提交历史<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="6-撤销"><a href="#6-撤销" class="headerlink" title="6. 撤销"></a>6. 撤销</h3><pre class="line-numbers language-none"><code class="language-none">$ git reset --hard HEAD           # 撤消工作目录中所有未提交文件的修改内容
 $ git reset --hard &lt;version&gt;      # 撤销到某个特定版本
 $ git checkout HEAD &lt;file&gt;        # 撤消指定的未提交文件的修改内容
 $ git checkout -- &lt;file&gt;          # 同上一个命令
 $ git revert &lt;commit&gt;             # 撤消指定的提交分支与标签<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-<h3 id="7-分支与标签"><a href="#7-分支与标签" class="headerlink" title="7. 分支与标签"></a>7. 分支与标签</h3><pre><code><pre class="line-numbers language-none"><code class="language-none">$ git branch                      # 显示所有本地分支
+
+<h3 id="7-分支与标签"><a href="#7-分支与标签" class="headerlink" title="7. 分支与标签"></a>7. 分支与标签</h3><pre class="line-numbers language-none"><code class="language-none">$ git branch                      # 显示所有本地分支
 $ git checkout &lt;branch/tag&gt;       # 切换到指定分支或标签
 $ git branch &lt;new-branch&gt;         # 创建新分支
 $ git branch -d &lt;branch&gt;          # 删除本地分支
@@ -448,13 +449,13 @@ $ git tag -a "v1.0" -m "一些说明"  # -a指定标签名称，-m指定标签�
 $ git tag -d &lt;tagname&gt;            # 删除标签
 $ git checkout dev                # 合并特定的commit到dev分支上
 $ git cherry-pick 62ecb3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-<h3 id="8-合并与衍合"><a href="#8-合并与衍合" class="headerlink" title="8. 合并与衍合"></a>8. 合并与衍合</h3><pre><code><pre class="line-numbers language-none"><code class="language-none">$ git merge &lt;branch&gt;              # 合并指定分支到当前分支
+
+<h3 id="8-合并与衍合"><a href="#8-合并与衍合" class="headerlink" title="8. 合并与衍合"></a>8. 合并与衍合</h3><pre class="line-numbers language-none"><code class="language-none">$ git merge &lt;branch&gt;              # 合并指定分支到当前分支
 $ git merge --abort               # 取消当前合并，重建合并前状态
 $ git merge dev -Xtheirs          # 以合并dev分支到当前分支，有冲突则以dev分支为准
 $ git rebase &lt;branch&gt;             # 衍合指定分支到当前分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-<h3 id="9-远程操作"><a href="#9-远程操作" class="headerlink" title="9.  远程操作"></a>9.  远程操作</h3><pre><code><pre class="line-numbers language-none"><code class="language-none">$ git remote -v                   # 查看远程版本库信息
+
+<h3 id="9-远程操作"><a href="#9-远程操作" class="headerlink" title="9.  远程操作"></a>9.  远程操作</h3><pre class="line-numbers language-none"><code class="language-none">$ git remote -v                   # 查看远程版本库信息
 $ git remote show &lt;remote&gt;        # 查看指定远程版本库信息
 $ git remote add &lt;remote&gt; &lt;url&gt;   # 添加远程版本库
 $ git remote remove &lt;remote&gt;      # 删除指定的远程版本库
@@ -463,21 +464,20 @@ $ git pull &lt;remote&gt; &lt;branch&gt;      # 下载代码及快速合并
 $ git push &lt;remote&gt; &lt;branch&gt;      # 上传代码及快速合并
 $ git push &lt;remote&gt; :&lt;branch/tag-name&gt; # 删除远程分支或标签
 $ git push --tags                 # 上传所有标签<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-<h3 id="10-打包"><a href="#10-打包" class="headerlink" title="10. 打包"></a>10. 打包</h3><pre><code><pre class="line-numbers language-none"><code class="language-none">$ git archive --format=zip --output ../file.zip master    # 将master分支打包成file.zip文件，保存在上一级目录
+
+<h3 id="10-打包"><a href="#10-打包" class="headerlink" title="10. 打包"></a>10. 打包</h3><pre class="line-numbers language-none"><code class="language-none">$ git archive --format=zip --output ../file.zip master    # 将master分支打包成file.zip文件，保存在上一级目录
 $ git archive --format=zip --output ../v1.2.zip v1.2      # 打包v1.2标签的文件，保存在上一级目录v1.2.zip文件中
 $ git archive --format=zip v1.2 &gt; ../v1.2.zip             # 作用同上一条命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</code></pre>
-<h3 id="11-全局和局部配置"><a href="#11-全局和局部配置" class="headerlink" title="11. 全局和局部配置"></a>11. 全局和局部配置</h3><pre><code><pre class="line-numbers language-none"><code class="language-none">全局配置保存在：$Home/.gitconfig
+
+<h3 id="11-全局和局部配置"><a href="#11-全局和局部配置" class="headerlink" title="11. 全局和局部配置"></a>11. 全局和局部配置</h3><pre class="line-numbers language-none"><code class="language-none">全局配置保存在：$Home/.gitconfig
 本地仓库配置保存在：.git/config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</code></pre>
-<h3 id="12-远程与本地合并"><a href="#12-远程与本地合并" class="headerlink" title="12. 远程与本地合并"></a>12. 远程与本地合并</h3><pre><code><pre class="line-numbers language-none"><code class="language-none">$ git init                              # 初始化本地代码仓
+
+<h3 id="12-远程与本地合并"><a href="#12-远程与本地合并" class="headerlink" title="12. 远程与本地合并"></a>12. 远程与本地合并</h3><pre class="line-numbers language-none"><code class="language-none">$ git init                              # 初始化本地代码仓
 $ git add .                             # 添加本地代码
 $ git commit -m "add local source"      # 提交本地代码
 $ git pull origin master                # 下载远程代码
 $ git merge master                      # 合并master分支
 $ git push -u origin master             # 上传代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</code></pre>
 
                 
             </div>
@@ -554,7 +554,7 @@ $ git push -u origin master             # 上传代码<span aria-hidden="true" c
 <div id="article-share">
 
     
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <div class="social-share" data-sites="google,wechat,weibo" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
     <script src="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/libs/share/js/social-share.min.js"></script>
     
 
