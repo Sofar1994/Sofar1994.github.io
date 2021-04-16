@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://sofar1994.github.io/"/>
+  <updated>2021-04-16T04:52:06.529Z</updated>
+  <id>http://sofar1994.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git commands</title>
+    <link href="http://sofar1994.github.io/2021/04/16/git-commands/"/>
+    <id>http://sofar1994.github.io/2021/04/16/git-commands/</id>
+    <published>2021-04-16T04:46:34.000Z</published>
+    <updated>2021-04-16T04:52:06.529Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;#git常用命令&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;常用&lt;br&gt;$ git fetch –all &amp;amp;&amp;amp; git reset –hard origin/develop &amp;amp;&amp;amp; git pull  # 强拉覆盖本地&lt;br&gt;$ git remote add</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>artical title</title>
+    <link href="http://sofar1994.github.io/2021/04/16/artical-title/"/>
+    <id>http://sofar1994.github.io/2021/04/16/artical-title/</id>
+    <published>2021-04-16T03:20:59.000Z</published>
+    <updated>2021-04-16T03:20:59.910Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://sofar1994.github.io/2021/04/16/hello-world/"/>
+    <id>http://sofar1994.github.io/2021/04/16/hello-world/</id>
+    <published>2021-04-16T03:16:10.325Z</published>
+    <updated>2021-04-16T03:16:10.325Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
