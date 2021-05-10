@@ -257,7 +257,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #bf30ac 0%, #0f9d58 100%);
     opacity: 0.8;
 }
 
@@ -1317,7 +1317,7 @@ thead {
 
 .chip-container .chip:hover {
     color: #fff;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%) !important;
+    background: linear-gradient(to right, #FF5E3A 0%, #0f9d58 100%) !important;
 }
 
 .chip .tag-length {
