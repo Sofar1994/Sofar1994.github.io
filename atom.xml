@@ -6,7 +6,7 @@
   <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
   
   <link href="http://sofar1994.github.io/"/>
-  <updated>2021-04-16T08:04:41.178Z</updated>
+  <updated>2021-05-10T05:21:37.999Z</updated>
   <id>http://sofar1994.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>goroutine</title>
+    <link href="http://sofar1994.github.io/2021/05/07/goroutine/"/>
+    <id>http://sofar1994.github.io/2021/05/07/goroutine/</id>
+    <published>2021-05-07T10:54:05.000Z</published>
+    <updated>2021-05-10T05:21:37.999Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Go 语言提供了 sync 和 channel 两种方式支持协程(goroutine)的并发。&lt;/p&gt;
+&lt;p&gt;例如我们希望并发下载 N 个资源，多个并发协程之间不需要通信，那么就可以使用 sync.WaitGroup，等待所有并发协程执行结束。&lt;/p&gt;
+&lt;h2</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>git常用命令</title>
