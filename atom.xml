@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Sofar1994.github.io</title>
+  <title>sofar的小站</title>
   
-  <subtitle>sofar</subtitle>
+  <subtitle>写点有趣的</subtitle>
   <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
   
   <link href="http://sofar1994.github.io/"/>
@@ -10,7 +10,7 @@
   <id>http://sofar1994.github.io/</id>
   
   <author>
-    <name>Sofar</name>
+    <name>sofar</name>
     
   </author>
   
