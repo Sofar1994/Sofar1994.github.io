@@ -6,7 +6,7 @@
   <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
   
   <link href="http://sofar1994.github.io/"/>
-  <updated>2021-05-10T05:21:37.999Z</updated>
+  <updated>2021-05-31T04:51:55.630Z</updated>
   <id>http://sofar1994.github.io/</id>
   
   <author>
@@ -17,11 +17,32 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>goroutine</title>
-    <link href="http://sofar1994.github.io/2021/05/07/goroutine/"/>
-    <id>http://sofar1994.github.io/2021/05/07/goroutine/</id>
-    <published>2021-05-07T10:54:05.000Z</published>
-    <updated>2021-05-10T05:21:37.999Z</updated>
+    <title>小技巧:合并两个切片</title>
+    <link href="http://sofar1994.github.io/xiao-ji-qiao-he-bing-liang-ge-qie-pian/"/>
+    <id>http://sofar1994.github.io/xiao-ji-qiao-he-bing-liang-ge-qie-pian/</id>
+    <published>2021-05-28T09:40:10.000Z</published>
+    <updated>2021-05-31T04:51:55.630Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;总所周知，Slice追加元素使用 &lt;code&gt;append()&lt;/code&gt;,而&lt;code&gt;append&lt;/code&gt;函数是这样的&lt;code&gt;append(slice []Type, elems</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>小技巧:Go并发编程示例</title>
+    <link href="http://sofar1994.github.io/goroutine/"/>
+    <id>http://sofar1994.github.io/goroutine/</id>
+    <published>2021-05-07T10:54:05.932Z</published>
+    <updated>2021-05-31T04:53:42.899Z</updated>
     
     
       
@@ -41,8 +62,8 @@
   
   <entry>
     <title>git常用命令</title>
-    <link href="http://sofar1994.github.io/2021/04/16/git-commands/"/>
-    <id>http://sofar1994.github.io/2021/04/16/git-commands/</id>
+    <link href="http://sofar1994.github.io/git-commands/"/>
+    <id>http://sofar1994.github.io/git-commands/</id>
     <published>2021-04-16T04:46:34.000Z</published>
     <updated>2021-04-16T08:04:41.178Z</updated>
     
@@ -66,8 +87,8 @@
   
   <entry>
     <title>artical title</title>
-    <link href="http://sofar1994.github.io/2021/04/16/artical-title/"/>
-    <id>http://sofar1994.github.io/2021/04/16/artical-title/</id>
+    <link href="http://sofar1994.github.io/artical-title/"/>
+    <id>http://sofar1994.github.io/artical-title/</id>
     <published>2021-04-16T03:20:59.000Z</published>
     <updated>2021-04-16T03:20:59.910Z</updated>
     
@@ -79,8 +100,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://sofar1994.github.io/2021/04/16/hello-world/"/>
-    <id>http://sofar1994.github.io/2021/04/16/hello-world/</id>
+    <link href="http://sofar1994.github.io/hello-world/"/>
+    <id>http://sofar1994.github.io/hello-world/</id>
     <published>2021-04-16T03:16:10.325Z</published>
     <updated>2021-04-16T06:21:32.858Z</updated>
     
