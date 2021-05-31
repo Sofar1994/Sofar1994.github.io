@@ -258,7 +258,8 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #bf30ac 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #a8afa6 0%, #99a3988c 100%);
+    opacity: 0.8;
 }
 
 .text-color {
@@ -274,7 +275,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #bf30ac 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #a8afa6 0%, #99a3988c 100%);
     opacity: 0.8;
 }
 
@@ -568,8 +569,8 @@ header .go-back i {
 }
 
 .bg-cover:after {
-    -webkit-animation: rainbow 60s infinite;
-    animation: rainbow 60s infinite;
+    /* -webkit-animation: rainbow 60s infinite;
+    animation: rainbow 60s infinite; */
 }
 
 .bg-cover:before,
@@ -611,13 +612,12 @@ header .go-back i {
 }
 
 @-webkit-keyframes rainbow {
-
     0%,
     100% {
-        background: rgba(156, 39, 176, 0.75);
-        background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
-        background: -moz-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: rgba(200, 186, 202, 0.75);
+        background: linear-gradient(45deg, rgba(200, 186, 202, 0.75) 0%, rgba(200, 186, 202, 0.75) 100%);
+        background: -moz-linear-gradient(135deg, rgba(200, 186, 202, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(200, 186, 202, 0.75) 0%, rgba(200, 186, 202, 0.75) 100%);
     }
 
     16% {
@@ -2041,8 +2041,7 @@ footer .copy-right {
 
 /*二级菜单*/
 
-.nav-menu {
-}
+.nav-menu {}
 
 .nav-menu li .sub-nav {
     position: absolute;
