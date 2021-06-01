@@ -6,7 +6,7 @@
   <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
   
   <link href="http://sofar1994.github.io/"/>
-  <updated>2021-06-01T06:02:33.293Z</updated>
+  <updated>2021-06-01T11:16:21.089Z</updated>
   <id>http://sofar1994.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-15 ThreeSum</title>
+    <link href="http://sofar1994.github.io/leetcode-15-threesum/"/>
+    <id>http://sofar1994.github.io/leetcode-15-threesum/</id>
+    <published>2021-06-01T10:32:58.000Z</published>
+    <updated>2021-06-01T11:16:21.089Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;外层循环 指针i遍历数组&lt;br&gt;内层循环 利用双指针获取三数之和 == 0 的元素&lt;/p&gt;
+&lt;h2 id=&quot;排序&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="leetCode" scheme="http://sofar1994.github.io/tags/leetCode/"/>
+    
+    <category term="双指针" scheme="http://sofar1994.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
   
   <entry>
     <title>小技巧:合并两个切片</title>

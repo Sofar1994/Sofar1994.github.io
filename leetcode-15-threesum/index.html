@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="小技巧:合并两个切片, Go Golang PHP Sofar 算法">
+    <meta name="keywords" content="leetcode-15 ThreeSum, Go Golang PHP Sofar 算法">
     <meta name="description" content="Write something interesting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>小技巧:合并两个切片 | sofar的小站</title>
+    <title>leetcode-15 ThreeSum | sofar的小站</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/medias/featureimages/16.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/medias/featureimages/3.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">小技巧:合并两个切片</h1>
+                    <h1 class="description center-align post-title">leetcode-15 ThreeSum</h1>
                 </div>
             </div>
         </div>
@@ -444,8 +444,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-                                <span class="chip bg-color">小技巧</span>
+                            <a href="/tags/leetCode/">
+                                <span class="chip bg-color">leetCode</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                <span class="chip bg-color">双指针</span>
                             </a>
                         
                     </div>
@@ -460,7 +464,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-28
+                    2021-06-01
                 </div>
                 
 
@@ -484,18 +488,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>总所周知，Slice追加元素使用 <code>append()</code>,而<code>append</code>函数是这样的<code>append(slice []Type, elems ...Type)</code>,<br>这里的<code>...</code>就是关键所在。切片合并<code>append([]int{1,2},[]int{3,4})</code><br>就像其他任何可变参数函数一样.</p>
+                <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>外层循环 指针i遍历数组<br>内层循环 利用双指针获取三数之和 == 0 的元素</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>有序数组有利于去重</p>
+<h2 id="双指针"><a href="#双指针" class="headerlink" title="双指针"></a>双指针</h2><p>指针 <code>l</code> = i + 1</p>
+<p>指针 <code>r</code> = len(nums) - 1</p>
+<p>在 <code>l</code> 指针小于 <code>r</code> 指针的前提下，如果 <code>nums[l] + nums[r] &gt; nums[i]</code> ，需要 <code>右指针</code> 左移，并且要避免重复</p>
 <pre class="line-numbers language-go" data-language="go"><code class="language-go">
-<span class="token keyword">func</span> <span class="token function">foo</span><span class="token punctuation">(</span>is<span class="token operator">...</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>is<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
-        fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>is<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
+<span class="token keyword">func</span> <span class="token function">threeSum</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span> <span class="token punctuation">{</span>
+    sort<span class="token punctuation">.</span><span class="token function">Ints</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> 
+	<span class="token comment">//fmt.Println(nums)</span>
+	result <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+	n <span class="token operator">:=</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span>
+    <span class="token comment">// n - 2 </span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">{</span>
+			<span class="token keyword">break</span>
+		<span class="token punctuation">}</span>
 
-<span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token operator">...</span><span class="token punctuation">)</span>
+		<span class="token keyword">if</span> i <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+			<span class="token keyword">continue</span>
+		<span class="token punctuation">}</span>
+
+		r <span class="token operator">:=</span> n <span class="token operator">-</span> <span class="token number">1</span>
+		target <span class="token operator">:=</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">*</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+
+		<span class="token keyword">for</span> l <span class="token operator">:=</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> l <span class="token operator">&lt;</span> r<span class="token punctuation">;</span> l<span class="token operator">++</span><span class="token punctuation">{</span>
+			<span class="token keyword">if</span> l <span class="token operator">&gt;</span> i<span class="token operator">+</span><span class="token number">1</span> <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>l<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+				<span class="token keyword">continue</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">for</span> l <span class="token operator">&lt;</span> r <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">&gt;</span> target <span class="token punctuation">{</span>
+				r<span class="token operator">--</span>
+			<span class="token punctuation">}</span>
+            <span class="token comment">// 指针重合 结束循环</span>
+			<span class="token keyword">if</span> l <span class="token operator">==</span> r <span class="token punctuation">{</span>
+				<span class="token keyword">break</span>
+			<span class="token punctuation">}</span>
+			<span class="token keyword">if</span> nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span> <span class="token operator">==</span> target <span class="token punctuation">{</span>
+				result <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>result<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>l<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> result
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -522,7 +557,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Sofar1994.github.io/mrege-slice/">http://Sofar1994.github.io/mrege-slice/</a>
+                    <a href="http://Sofar1994.github.io/leetcode-15-threesum/">http://Sofar1994.github.io/leetcode-15-threesum/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -560,8 +595,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-                                    <span class="chip bg-color">小技巧</span>
+                                <a href="/tags/leetCode/">
+                                    <span class="chip bg-color">leetCode</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                    <span class="chip bg-color">双指针</span>
                                 </a>
                             
                         </div>
@@ -606,7 +645,7 @@
         repo: 'blog-comments',
         owner: 'Sofar1994',
         admin: null,
-        id: '2021-05-28T17-40-10',
+        id: '2021-06-01T18-32-58',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -634,9 +673,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/leetcode-15-threesum/">
                     <div class="card-image">
@@ -654,9 +694,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -665,6 +705,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -687,33 +728,29 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/git-commands/">
+                <a href="/mrege-slice/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/medias/featureimages/3.jpeg" class="responsive-img" alt="小技巧:git常用命令">
+                        <img src="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/medias/featureimages/16.jpeg" class="responsive-img" alt="小技巧:合并两个切片">
                         
-                        <span class="card-title">小技巧:git常用命令</span>
+                        <span class="card-title">小技巧:合并两个切片</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            git常用命令汇总
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Sofar
                             
                         </span>
                     </div>
