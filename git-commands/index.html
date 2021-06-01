@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git常用命令, Go Golang PHP Sofar 算法">
+    <meta name="keywords" content="小技巧:git常用命令, Go Golang PHP Sofar 算法">
     <meta name="description" content="Write something interesting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>git常用命令 | sofar的小站</title>
+    <title>小技巧:git常用命令 | sofar的小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,16 +29,16 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="sofar的小站" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="sofar的小站" type="application/atom+xml">
 </head>
 
 
 
    <style>
     body{
-       background-image: url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwall.alphacoders.com%2Fbig.php%3Fi%3D585616%26lang%3DChinese&psig=AOvVaw0omRR3anUC07DQL1Y_I5xB&ust=1622537116480000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKCQ7_7D8_ACFQAAAAAdAAAAABAD);
+       background-image: url(/medias/background/550739.jpeg);
        background-repeat:no-repeat;
        background-size:cover;
        background-attachment:fixed;
@@ -274,7 +274,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #6f9e87;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git常用命令</h1>
+                    <h1 class="description center-align post-title">小技巧:git常用命令</h1>
                 </div>
             </div>
         </div>
@@ -338,10 +338,104 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -350,8 +444,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+                                <span class="chip bg-color">小技巧</span>
                             </a>
                         
                     </div>
@@ -399,95 +493,95 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><h3 id="1-常用"><a href="#1-常用" class="headerlink" title="1. 常用"></a>1. 常用</h3><pre class="line-numbers language-none"><code class="language-none">$ git fetch --all &amp;&amp; git reset --hard origin/develop &amp;&amp; git pull  # 强拉覆盖本地
-$ git remote add origin git@github.com:                           # 配置远程git版本库
-$ git pull origin master                                          # 下载代码及快速合并
-$ git push origin master                                          # 上传代码及快速合并
-$ git fetch origin                                                # 从远程库获取代码
-$ git branch                                                      # 显示所有分支
-$ git checkout master                                             # 切换到master分支
-$ git checkout -b dev                                             # 创建并切换到dev分支
-$ git commit -m "first version"                                   # 提交
-$ git status                                                      # 查看状态
-$ git log                                                         # 查看提交历史
-$ git config --global core.editor vim                             # 设置默认编辑器为vim（git默认用nano）
-$ git config core.ignorecase false                                # 设置大小写敏感
-$ git config --global user.name "YOUR NAME"                       # 设置用户名
-$ git config --global user.email "YOUR EMAIL ADDRESS"             # 设置邮箱<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="git常用命令"><a href="#git常用命令" class="headerlink" title="git常用命令"></a>git常用命令</h2><h3 id="1-常用"><a href="#1-常用" class="headerlink" title="1. 常用"></a>1. 常用</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> fetch --all <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> reset --hard origin/develop <span class="token operator">&amp;&amp;</span> <span class="token function">git</span> pull  <span class="token comment"># 强拉覆盖本地</span>
+<span class="token function">git</span> remote <span class="token function">add</span> origin git@github.com:                           <span class="token comment"># 配置远程git版本库</span>
+<span class="token function">git</span> pull origin master                                          <span class="token comment"># 下载代码及快速合并</span>
+<span class="token function">git</span> push origin master                                          <span class="token comment"># 上传代码及快速合并</span>
+<span class="token function">git</span> fetch origin                                                <span class="token comment"># 从远程库获取代码</span>
+<span class="token function">git</span> branch                                                      <span class="token comment"># 显示所有分支</span>
+<span class="token function">git</span> checkout master                                             <span class="token comment"># 切换到master分支</span>
+<span class="token function">git</span> checkout -b dev                                             <span class="token comment"># 创建并切换到dev分支</span>
+<span class="token function">git</span> commit -m <span class="token string">"first version"</span>                                   <span class="token comment"># 提交</span>
+<span class="token function">git</span> status                                                      <span class="token comment"># 查看状态</span>
+<span class="token function">git</span> log                                                         <span class="token comment"># 查看提交历史</span>
+<span class="token function">git</span> config --global core.editor <span class="token function">vim</span>                             <span class="token comment"># 设置默认编辑器为vim（git默认用nano）</span>
+<span class="token function">git</span> config core.ignorecase <span class="token boolean">false</span>                                <span class="token comment"># 设置大小写敏感</span>
+<span class="token function">git</span> config --global user.name <span class="token string">"YOUR NAME"</span>                       <span class="token comment"># 设置用户名</span>
+<span class="token function">git</span> config --global user.email <span class="token string">"YOUR EMAIL ADDRESS"</span>             <span class="token comment"># 设置邮箱</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="2-别名-alias"><a href="#2-别名-alias" class="headerlink" title="2. 别名 alias"></a>2. 别名 alias</h3><pre class="line-numbers language-none"><code class="language-none">$ git config --global alias.br="branch"                 # 创建/查看本地分支
-$ git config --global alias.co="checkout"               # 切换分支
-$ git config --global alias.cb="checkout -b"            # 创建并切换到新分支
-$ git config --global alias.cm="commit -m"              # 提交
-$ git config --global alias.st="status"                 # 查看状态
-$ git config --global alias.pullm="pull origin master"  # 拉取分支
-$ git config --global alias.pushm="push origin master"  # 提交分支
-$ git config --global alias.log="git log --oneline --graph --decorate --color=always" # 单行、分颜色显示记录
-$ git config --global alias.logg="git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative" # 复杂显示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2-别名-alias"><a href="#2-别名-alias" class="headerlink" title="2. 别名 alias"></a>2. 别名 alias</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global alias.br<span class="token operator">=</span><span class="token string">"branch"</span>                 <span class="token comment"># 创建/查看本地分支</span>
+<span class="token function">git</span> config --global alias.co<span class="token operator">=</span><span class="token string">"checkout"</span>               <span class="token comment"># 切换分支</span>
+<span class="token function">git</span> config --global alias.cb<span class="token operator">=</span><span class="token string">"checkout -b"</span>            <span class="token comment"># 创建并切换到新分支</span>
+<span class="token function">git</span> config --global alias.cm<span class="token operator">=</span><span class="token string">"commit -m"</span>              <span class="token comment"># 提交</span>
+<span class="token function">git</span> config --global alias.st<span class="token operator">=</span><span class="token string">"status"</span>                 <span class="token comment"># 查看状态</span>
+<span class="token function">git</span> config --global alias.pullm<span class="token operator">=</span><span class="token string">"pull origin master"</span>  <span class="token comment"># 拉取分支</span>
+<span class="token function">git</span> config --global alias.pushm<span class="token operator">=</span><span class="token string">"push origin master"</span>  <span class="token comment"># 提交分支</span>
+<span class="token function">git</span> config --global alias.log<span class="token operator">=</span><span class="token string">"git log --oneline --graph --decorate --color=always"</span> <span class="token comment"># 单行、分颜色显示记录</span>
+<span class="token function">git</span> config --global alias.logg<span class="token operator">=</span><span class="token string">"git log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(bold white)— %an%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative"</span> <span class="token comment"># 复杂显示</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="3-创建版本库"><a href="#3-创建版本库" class="headerlink" title="3. 创建版本库"></a>3. 创建版本库</h3><pre class="line-numbers language-none"><code class="language-none">$ git clone &lt;url&gt;                 # 克隆远程版本库
-$ git init                        # 初始化本地版本库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="3-创建版本库"><a href="#3-创建版本库" class="headerlink" title="3. 创建版本库"></a>3. 创建版本库</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone <span class="token operator">&lt;</span>url<span class="token operator">&gt;</span>                 <span class="token comment"># 克隆远程版本库</span>
+<span class="token function">git</span> init                        <span class="token comment"># 初始化本地版本库</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="4-修改和提交"><a href="#4-修改和提交" class="headerlink" title="4. 修改和提交"></a>4. 修改和提交</h3><pre class="line-numbers language-none"><code class="language-none">$ git status                      # 查看状态
-$ git diff                        # 查看变更内容
-$ git add .                       # 跟踪所有改动过的文件
-$ git add &lt;file&gt;                  # 跟踪指定的文件
-$ git mv &lt;old&gt; &lt;new&gt;              # 文件改名
-$ git rm &lt;file&gt;                   # 删除文件
-$ git rm --cached &lt;file&gt;          # 停止跟踪文件但不删除
-$ git commit -m “commit message”  # 提交所有更新过的文件
-$ git commit --amend              # 修改最后一次提交<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-修改和提交"><a href="#4-修改和提交" class="headerlink" title="4. 修改和提交"></a>4. 修改和提交</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> status                      <span class="token comment"># 查看状态</span>
+<span class="token function">git</span> <span class="token function">diff</span>                        <span class="token comment"># 查看变更内容</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>                       <span class="token comment"># 跟踪所有改动过的文件</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>                  <span class="token comment"># 跟踪指定的文件</span>
+<span class="token function">git</span> <span class="token function">mv</span> <span class="token operator">&lt;</span>old<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>new<span class="token operator">&gt;</span>              <span class="token comment"># 文件改名</span>
+<span class="token function">git</span> <span class="token function">rm</span> <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>                   <span class="token comment"># 删除文件</span>
+<span class="token function">git</span> <span class="token function">rm</span> --cached <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>          <span class="token comment"># 停止跟踪文件但不删除</span>
+<span class="token function">git</span> commit -m “commit message”  <span class="token comment"># 提交所有更新过的文件</span>
+<span class="token function">git</span> commit --amend              <span class="token comment"># 修改最后一次提交</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="5-查看历史"><a href="#5-查看历史" class="headerlink" title="5. 查看历史"></a>5. 查看历史</h3><pre class="line-numbers language-none"><code class="language-none">$ git log                         # 查看提交历史
-$ git log -p &lt;file&gt;               # 查看指定文件的提交历史
-$ git blame &lt;file&gt;                # 以列表方式查看指定文件的提交历史<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="5-查看历史"><a href="#5-查看历史" class="headerlink" title="5. 查看历史"></a>5. 查看历史</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> log                         <span class="token comment"># 查看提交历史</span>
+<span class="token function">git</span> log -p <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>               <span class="token comment"># 查看指定文件的提交历史</span>
+<span class="token function">git</span> blame <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>                <span class="token comment"># 以列表方式查看指定文件的提交历史</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="6-撤销"><a href="#6-撤销" class="headerlink" title="6. 撤销"></a>6. 撤销</h3><pre class="line-numbers language-none"><code class="language-none">$ git reset --hard HEAD           # 撤消工作目录中所有未提交文件的修改内容
-$ git reset --hard &lt;version&gt;      # 撤销到某个特定版本
-$ git checkout HEAD &lt;file&gt;        # 撤消指定的未提交文件的修改内容
-$ git checkout -- &lt;file&gt;          # 同上一个命令
-$ git revert &lt;commit&gt;             # 撤消指定的提交分支与标签<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="6-撤销"><a href="#6-撤销" class="headerlink" title="6. 撤销"></a>6. 撤销</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> reset --hard HEAD           <span class="token comment"># 撤消工作目录中所有未提交文件的修改内容</span>
+<span class="token function">git</span> reset --hard <span class="token operator">&lt;</span>version<span class="token operator">&gt;</span>      <span class="token comment"># 撤销到某个特定版本</span>
+<span class="token function">git</span> checkout HEAD <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>        <span class="token comment"># 撤消指定的未提交文件的修改内容</span>
+<span class="token function">git</span> checkout -- <span class="token operator">&lt;</span>file<span class="token operator">&gt;</span>          <span class="token comment"># 同上一个命令</span>
+<span class="token function">git</span> revert <span class="token operator">&lt;</span>commit<span class="token operator">&gt;</span>             <span class="token comment"># 撤消指定的提交分支与标签</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="7-分支与标签"><a href="#7-分支与标签" class="headerlink" title="7. 分支与标签"></a>7. 分支与标签</h3><pre class="line-numbers language-none"><code class="language-none">$ git branch                      # 显示所有本地分支
-$ git checkout &lt;branch/tag&gt;       # 切换到指定分支或标签
-$ git branch &lt;new-branch&gt;         # 创建新分支
-$ git branch -d &lt;branch&gt;          # 删除本地分支
-$ git tag                         # 列出所有本地标签
-$ git tag &lt;tagname&gt;               # 基于最新提交创建标签
-$ git tag -a "v1.0" -m "一些说明"  # -a指定标签名称，-m指定标签说明
-$ git tag -d &lt;tagname&gt;            # 删除标签
-$ git checkout dev                # 合并特定的commit到dev分支上
-$ git cherry-pick 62ecb3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="7-分支与标签"><a href="#7-分支与标签" class="headerlink" title="7. 分支与标签"></a>7. 分支与标签</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"> <span class="token function">git</span> branch                      <span class="token comment"># 显示所有本地分支</span>
+<span class="token function">git</span> checkout <span class="token operator">&lt;</span>branch/tag<span class="token operator">&gt;</span>       <span class="token comment"># 切换到指定分支或标签</span>
+ <span class="token function">git</span> branch <span class="token operator">&lt;</span>new-branch<span class="token operator">&gt;</span>         <span class="token comment"># 创建新分支</span>
+ <span class="token function">git</span> branch -d <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span>          <span class="token comment"># 删除本地分支</span>
+ <span class="token function">git</span> tag                         <span class="token comment"># 列出所有本地标签</span>
+ <span class="token function">git</span> tag <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span>               <span class="token comment"># 基于最新提交创建标签</span>
+ <span class="token function">git</span> tag -a <span class="token string">"v1.0"</span> -m <span class="token string">"一些说明"</span>  <span class="token comment"># -a指定标签名称，-m指定标签说明</span>
+ <span class="token function">git</span> tag -d <span class="token operator">&lt;</span>tagname<span class="token operator">&gt;</span>            <span class="token comment"># 删除标签</span>
+ <span class="token function">git</span> checkout dev                <span class="token comment"># 合并特定的commit到dev分支上</span>
+ <span class="token function">git</span> cherry-pick 62ecb3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="8-合并与衍合"><a href="#8-合并与衍合" class="headerlink" title="8. 合并与衍合"></a>8. 合并与衍合</h3><pre class="line-numbers language-none"><code class="language-none">$ git merge &lt;branch&gt;              # 合并指定分支到当前分支
-$ git merge --abort               # 取消当前合并，重建合并前状态
-$ git merge dev -Xtheirs          # 以合并dev分支到当前分支，有冲突则以dev分支为准
-$ git rebase &lt;branch&gt;             # 衍合指定分支到当前分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="8-合并与衍合"><a href="#8-合并与衍合" class="headerlink" title="8. 合并与衍合"></a>8. 合并与衍合</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> merge <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span>              <span class="token comment"># 合并指定分支到当前分支</span>
+<span class="token function">git</span> merge --abort               <span class="token comment"># 取消当前合并，重建合并前状态</span>
+<span class="token function">git</span> merge dev -Xtheirs          <span class="token comment"># 以合并dev分支到当前分支，有冲突则以dev分支为准</span>
+<span class="token function">git</span> rebase <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span>             <span class="token comment"># 衍合指定分支到当前分支</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="9-远程操作"><a href="#9-远程操作" class="headerlink" title="9.  远程操作"></a>9.  远程操作</h3><pre class="line-numbers language-none"><code class="language-none">$ git remote -v                   # 查看远程版本库信息
-$ git remote show &lt;remote&gt;        # 查看指定远程版本库信息
-$ git remote add &lt;remote&gt; &lt;url&gt;   # 添加远程版本库
-$ git remote remove &lt;remote&gt;      # 删除指定的远程版本库
-$ git fetch &lt;remote&gt;              # 从远程库获取代码
-$ git pull &lt;remote&gt; &lt;branch&gt;      # 下载代码及快速合并
-$ git push &lt;remote&gt; &lt;branch&gt;      # 上传代码及快速合并
-$ git push &lt;remote&gt; :&lt;branch/tag-name&gt; # 删除远程分支或标签
-$ git push --tags                 # 上传所有标签<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="9-远程操作"><a href="#9-远程操作" class="headerlink" title="9.  远程操作"></a>9.  远程操作</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> remote -v                   <span class="token comment"># 查看远程版本库信息</span>
+<span class="token function">git</span> remote show <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span>        <span class="token comment"># 查看指定远程版本库信息</span>
+<span class="token function">git</span> remote <span class="token function">add</span> <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>url<span class="token operator">&gt;</span>   <span class="token comment"># 添加远程版本库</span>
+<span class="token function">git</span> remote remove <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span>      <span class="token comment"># 删除指定的远程版本库</span>
+<span class="token function">git</span> fetch <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span>              <span class="token comment"># 从远程库获取代码</span>
+<span class="token function">git</span> pull <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span>      <span class="token comment"># 下载代码及快速合并</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> <span class="token operator">&lt;</span>branch<span class="token operator">&gt;</span>      <span class="token comment"># 上传代码及快速合并</span>
+<span class="token function">git</span> push <span class="token operator">&lt;</span>remote<span class="token operator">&gt;</span> :<span class="token operator">&lt;</span>branch/tag-name<span class="token operator">&gt;</span> <span class="token comment"># 删除远程分支或标签</span>
+<span class="token function">git</span> push --tags                 <span class="token comment"># 上传所有标签</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="10-打包"><a href="#10-打包" class="headerlink" title="10. 打包"></a>10. 打包</h3><pre class="line-numbers language-none"><code class="language-none">$ git archive --format=zip --output ../file.zip master    # 将master分支打包成file.zip文件，保存在上一级目录
-$ git archive --format=zip --output ../v1.2.zip v1.2      # 打包v1.2标签的文件，保存在上一级目录v1.2.zip文件中
-$ git archive --format=zip v1.2 &gt; ../v1.2.zip             # 作用同上一条命令<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="10-打包"><a href="#10-打包" class="headerlink" title="10. 打包"></a>10. 打包</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> archive --format<span class="token operator">=</span>zip --output <span class="token punctuation">..</span>/file.zip master    <span class="token comment"># 将master分支打包成file.zip文件，保存在上一级目录</span>
+<span class="token function">git</span> archive --format<span class="token operator">=</span>zip --output <span class="token punctuation">..</span>/v1.2.zip v1.2      <span class="token comment"># 打包v1.2标签的文件，保存在上一级目录v1.2.zip文件中</span>
+<span class="token function">git</span> archive --format<span class="token operator">=</span>zip v1.2 <span class="token operator">&gt;</span> <span class="token punctuation">..</span>/v1.2.zip             <span class="token comment"># 作用同上一条命令</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="11-全局和局部配置"><a href="#11-全局和局部配置" class="headerlink" title="11. 全局和局部配置"></a>11. 全局和局部配置</h3><pre class="line-numbers language-none"><code class="language-none">全局配置保存在：$Home/.gitconfig
+<h3 id="11-全局和局部配置"><a href="#11-全局和局部配置" class="headerlink" title="11. 全局和局部配置"></a>11. 全局和局部配置</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">全局配置保存在：Home/.gitconfig
 本地仓库配置保存在：.git/config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="12-远程与本地合并"><a href="#12-远程与本地合并" class="headerlink" title="12. 远程与本地合并"></a>12. 远程与本地合并</h3><pre class="line-numbers language-none"><code class="language-none">$ git init                              # 初始化本地代码仓
-$ git add .                             # 添加本地代码
-$ git commit -m "add local source"      # 提交本地代码
-$ git pull origin master                # 下载远程代码
-$ git merge master                      # 合并master分支
-$ git push -u origin master             # 上传代码<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="12-远程与本地合并"><a href="#12-远程与本地合并" class="headerlink" title="12. 远程与本地合并"></a>12. 远程与本地合并</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> init                              <span class="token comment"># 初始化本地代码仓</span>
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>                             <span class="token comment"># 添加本地代码</span>
+<span class="token function">git</span> commit -m <span class="token string">"add local source"</span>      <span class="token comment"># 提交本地代码</span>
+<span class="token function">git</span> pull origin master                <span class="token comment"># 下载远程代码</span>
+<span class="token function">git</span> merge master                      <span class="token comment"># 合并master分支</span>
+<span class="token function">git</span> push -u origin master             <span class="token comment"># 上传代码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -552,8 +646,8 @@ $ git push -u origin master             # 上传代码<span aria-hidden="true" c
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+                                    <span class="chip bg-color">小技巧</span>
                                 </a>
                             
                         </div>
@@ -630,13 +724,13 @@ $ git push -u origin master             # 上传代码<span aria-hidden="true" c
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/goroutine/">
+                <a href="/mrege-slice/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="小技巧:Go并发编程示例">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="小技巧:合并两个切片">
                         
-                        <span class="card-title">小技巧:Go并发编程示例</span>
+                        <span class="card-title">小技巧:合并两个切片</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -647,7 +741,7 @@ $ git push -u origin master             # 上传代码<span aria-hidden="true" c
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-07
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-28
                         </span>
                         <span class="publish-author">
                             
@@ -656,6 +750,14 @@ $ git push -u origin master             # 上传代码<span aria-hidden="true" c
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
+                        <span class="chip bg-color">小技巧</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -667,13 +769,13 @@ $ git push -u origin master             # 上传代码<span aria-hidden="true" c
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/artical-title/">
+                <a href="/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="artical title">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">artical title</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -722,6 +824,100 @@ $ git push -u origin master             # 上传代码<span aria-hidden="true" c
 
 <script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
