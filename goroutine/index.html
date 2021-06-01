@@ -486,7 +486,8 @@
             <div id="articleContent">
                 <p>Go 语言提供了 sync 和 channel 两种方式支持协程(goroutine)的并发。</p>
 <p>例如我们希望并发下载 N 个资源，多个并发协程之间不需要通信，那么就可以使用 sync.WaitGroup，等待所有并发协程执行结束。</p>
-<h2 id="1-sync"><a href="#1-sync" class="headerlink" title="1.sync"></a>1.sync</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">import</span> <span class="token punctuation">(</span>
+<h2 id="1-sync"><a href="#1-sync" class="headerlink" title="1.sync"></a>1.sync</h2><pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
 	<span class="token string">"fmt"</span>
 	<span class="token string">"sync"</span>
 	<span class="token string">"time"</span>
@@ -507,7 +508,8 @@
 	<span class="token punctuation">}</span>
 	wg<span class="token punctuation">.</span><span class="token function">Wait</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Done!"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <ul>
@@ -517,7 +519,8 @@
 <li>go download() : go 开启新的协程的关键字， 在新的协程中执行download()函数</li>
 </ul>
 <h2 id="2-channel"><a href="#2-channel" class="headerlink" title="2.channel"></a>2.channel</h2><p>使用 channel 信道，可以在协程之间传递消息。阻塞等待并发协程返回消息。</p>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> ch <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// 创建大小为 10 的缓冲信道</span>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token keyword">var</span> ch <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">string</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">// 创建大小为 10 的缓冲信道</span>
 
 <span class="token keyword">func</span> <span class="token function">download</span><span class="token punctuation">(</span>url <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"start to download"</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span>
@@ -534,11 +537,13 @@
 		fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"finish"</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span>
 	<span class="token punctuation">}</span>
 	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Done!"</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="3-读写锁"><a href="#3-读写锁" class="headerlink" title="3.读写锁"></a>3.读写锁</h2><p>并发时注意对资源的占用。</p>
 <p>小技巧：<br>在读锁占用的情况下，会阻止写但不阻止读，写锁会阻止读写，所以add的时候开启读锁而不是写锁可以提高性能.</p>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">var</span> counter <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">0</span>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token keyword">var</span> counter <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">0</span>
 <span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 	start <span class="token operator">:=</span> time<span class="token punctuation">.</span><span class="token function">Now</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 	lock <span class="token operator">:=</span> <span class="token operator">&amp;</span>sync<span class="token punctuation">.</span>RWMutex<span class="token punctuation">{</span><span class="token punctuation">}</span>
@@ -566,7 +571,8 @@
 	counter<span class="token operator">++</span>
 	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"%d: %d + %d = %d\n"</span><span class="token punctuation">,</span> counter<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span>
 	lock<span class="token punctuation">.</span><span class="token function">Unlock</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
                 

@@ -485,7 +485,8 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>总所周知，Slice追加元素使用 <code>append()</code>,而<code>append</code>函数是这样的<code>append(slice []Type, elems ...Type)</code>,<br>这里的<code>...</code>就是关键所在。切片合并<code>append([]int{1,2},[]int{3,4})</code><br>就像其他任何可变参数函数一样.</p>
-<pre class="line-numbers language-go" data-language="go"><code class="language-go"><span class="token keyword">func</span> <span class="token function">foo</span><span class="token punctuation">(</span>is<span class="token operator">...</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token keyword">func</span> <span class="token function">foo</span><span class="token punctuation">(</span>is<span class="token operator">...</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token function">len</span><span class="token punctuation">(</span>is<span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
         fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>is<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span>
@@ -493,7 +494,8 @@
 
 <span class="token keyword">func</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token operator">...</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
