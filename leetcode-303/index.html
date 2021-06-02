@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="leetcode-523-checkSubarraySum, Go Golang PHP Sofar 算法">
+    <meta name="keywords" content="leetcode-303-区域和检索 - 数组不可变, Go Golang PHP Sofar 算法">
     <meta name="description" content="Write something interesting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>leetcode-523-checkSubarraySum | sofar的小站</title>
+    <title>leetcode-303-区域和检索 - 数组不可变 | sofar的小站</title>
     <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/medias/featureimages/5.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/medias/featureimages/7.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">leetcode-523-checkSubarraySum</h1>
+                    <h1 class="description center-align post-title">leetcode-303-区域和检索 - 数组不可变</h1>
                 </div>
             </div>
         </div>
@@ -456,10 +456,6 @@
                                 <span class="chip bg-color">哈希表</span>
                             </a>
                         
-                            <a href="/tags/%E5%90%8C%E4%BD%99/">
-                                <span class="chip bg-color">同余</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -496,7 +492,98 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>nums数组的每一项都有对应的前缀和: nums的第0项到当前项的和。</p>
+<p>用数组 <code>preSum</code>表示，preSum[i]: nums的第0项到第i项的和。</p>
+<p><code>nums的某项</code> = 两个相邻的和前缀和的差：</p>
+<pre><code>nums[i] = preSum[i] - preSum[i-1]
+</code></pre>
+<p>而 <code>nums的某项的前缀和</code> 根据上述表达式转换得：   </p>
+<pre><code>preSum[i] = preSum[i-1] + nums[i]
+</code></pre>
+<p>对于 nums的 i 到 j 的元素和，根据上边的式子可得：</p>
+<pre><code>nums[i]+...+nums[j] = preSum[j] - preSum[i-1]
+</code></pre>
+<p>当 i 为0时，下标变成-1， 得出 preSum[-1] == 0  </p>
+<p>preSum数组根据上述式子 <code>preSum[i] = preSum[i-1] + nums[i]</code>, 遍历nums得出</p>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token keyword">type</span> NumArray <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+   numsLen <span class="token builtin">int</span>
+   preSum  <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">Constructor</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> NumArray <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> NumArray<span class="token punctuation">{</span>
+            numsLen<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            preSum<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	nA <span class="token operator">:=</span> NumArray<span class="token punctuation">{</span>
+		numsLen<span class="token punctuation">:</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		preSum<span class="token punctuation">:</span>  <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span>
+	nA<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nA<span class="token punctuation">.</span>numsLen<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		nA<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> nA<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>i<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> nA
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>this <span class="token operator">*</span>NumArray<span class="token punctuation">)</span> <span class="token function">SumRange</span><span class="token punctuation">(</span>left <span class="token builtin">int</span><span class="token punctuation">,</span> right <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> left <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> this<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>right<span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> this<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token operator">-</span> this<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>left<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="思路2"><a href="#思路2" class="headerlink" title="思路2"></a>思路2</h2><p>nums数组的每一项都有对应的前缀和: nums的第0项到当前项的和。</p>
+<p>用数组 <code>preSum</code>表示，preSum[i]: nums的第0项到第i项的和。</p>
+<pre><code>preSum[i] = nums[0]...+num[i-1]
+</code></pre>
+<p>得出</p>
+<pre><code>preSum[i+1] = nums[0] + nums[1] ... + num[i] = preSum[i] + num[i]
+</code></pre>
+<p>则</p>
+<pre><code>nums[i] = preSum[i+1] - preSum[i]
+
+nums[i] + ... + nums[j] = preSum[j+1] - preSum[i]
+</code></pre>
+<p>即</p>
+<pre><code>sumRange(i,j) = preSum[j+1] - preSum[i]
+</code></pre>
+<pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token keyword">type</span> NumArray <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+   numsLen <span class="token builtin">int</span>
+   preSum  <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">Constructor</span><span class="token punctuation">(</span>nums <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">)</span> NumArray <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> NumArray<span class="token punctuation">{</span>
+            numsLen<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+            preSum<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	nA <span class="token operator">:=</span> NumArray<span class="token punctuation">{</span>
+		numsLen<span class="token punctuation">:</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">,</span>
+		preSum<span class="token punctuation">:</span>  <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">int</span><span class="token punctuation">,</span> <span class="token function">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+	<span class="token punctuation">}</span>
+	nA<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+	<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> nA<span class="token punctuation">.</span>numsLen<span class="token punctuation">;</span> i<span class="token operator">++</span> <span class="token punctuation">{</span>
+		nA<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>i<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> nA<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> nA
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>this <span class="token operator">*</span>NumArray<span class="token punctuation">)</span> <span class="token function">SumRange</span><span class="token punctuation">(</span>left <span class="token builtin">int</span><span class="token punctuation">,</span> right <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token builtin">int</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">return</span> this<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>right<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">-</span> this<span class="token punctuation">.</span>preSum<span class="token punctuation">[</span>left<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
                 
             </div>
             <hr/>
@@ -522,7 +609,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Sofar1994.github.io/leetcode-523-checksubarraysum/">http://Sofar1994.github.io/leetcode-523-checksubarraysum/</a>
+                    <a href="http://Sofar1994.github.io/leetcode-303/">http://Sofar1994.github.io/leetcode-303/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -572,10 +659,6 @@
                                     <span class="chip bg-color">哈希表</span>
                                 </a>
                             
-                                <a href="/tags/%E5%90%8C%E4%BD%99/">
-                                    <span class="chip bg-color">同余</span>
-                                </a>
-                            
                         </div>
                     
                 </div>
@@ -618,7 +701,7 @@
         repo: 'blog-comments',
         owner: 'Sofar1994',
         admin: null,
-        id: '2021-06-02T11-19-35',
+        id: '2021-06-02T13-17-59',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -646,9 +729,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/leetcode-303/">
                     <div class="card-image">
@@ -666,9 +750,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -677,6 +761,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -703,24 +788,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/leetcode-15-threesum/">
+                <a href="/leetcode-523-checksubarraysum/">
                     <div class="card-image">
                         
                         
-                        <img src="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/medias/featureimages/3.jpeg" class="responsive-img" alt="leetcode-15 ThreeSum">
+                        <img src="https://cdn.jsdelivr.net/gh/Sofar1994/Sofar1994.github.io/medias/featureimages/5.jpeg" class="responsive-img" alt="leetcode-523-checkSubarraySum">
                         
-                        <span class="card-title">leetcode-15 ThreeSum</span>
+                        <span class="card-title">leetcode-523-checkSubarraySum</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            同余定理：如果两个整数m、n满足n-m能被k整除，那么n和m对k同余
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-02
                             </span>
                         <span class="publish-author">
                             
@@ -733,12 +818,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetCode/">
-                        <span class="chip bg-color">leetCode</span>
+                    <a href="/tags/leetcode/">
+                        <span class="chip bg-color">leetcode</span>
                     </a>
                     
-                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                        <span class="chip bg-color">双指针</span>
+                    <a href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">
+                        <span class="chip bg-color">前缀和</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/">
+                        <span class="chip bg-color">哈希表</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%90%8C%E4%BD%99/">
+                        <span class="chip bg-color">同余</span>
                     </a>
                     
                 </div>

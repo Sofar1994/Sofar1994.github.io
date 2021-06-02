@@ -6,7 +6,7 @@
   <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
   
   <link href="http://sofar1994.github.io/"/>
-  <updated>2021-06-02T03:19:35.824Z</updated>
+  <updated>2021-06-02T09:06:56.265Z</updated>
   <id>http://sofar1994.github.io/</id>
   
   <author>
@@ -17,15 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>leetcode-303-区域和检索 - 数组不可变</title>
+    <link href="http://sofar1994.github.io/leetcode-303/"/>
+    <id>http://sofar1994.github.io/leetcode-303/</id>
+    <published>2021-06-02T05:17:59.000Z</published>
+    <updated>2021-06-02T09:06:56.265Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;思路&quot;&gt;&lt;a href=&quot;#思路&quot; class=&quot;headerlink&quot; title=&quot;思路&quot;&gt;&lt;/a&gt;思路&lt;/h2&gt;&lt;p&gt;nums数组的每一项都有对应的前缀和: nums的第0项到当前项的和。&lt;/p&gt;
+&lt;p&gt;用数组</summary>
+        
+      
+    
+    
+    
+    
+    <category term="leetcode" scheme="http://sofar1994.github.io/tags/leetcode/"/>
+    
+    <category term="前缀和" scheme="http://sofar1994.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+    <category term="哈希表" scheme="http://sofar1994.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>leetcode-523-checkSubarraySum</title>
     <link href="http://sofar1994.github.io/leetcode-523-checksubarraysum/"/>
     <id>http://sofar1994.github.io/leetcode-523-checksubarraysum/</id>
     <published>2021-06-02T03:19:35.000Z</published>
-    <updated>2021-06-02T03:19:35.824Z</updated>
+    <updated>2021-06-02T05:15:09.855Z</updated>
     
     
     
     
+    
+    <category term="leetcode" scheme="http://sofar1994.github.io/tags/leetcode/"/>
+    
+    <category term="前缀和" scheme="http://sofar1994.github.io/tags/%E5%89%8D%E7%BC%80%E5%92%8C/"/>
+    
+    <category term="哈希表" scheme="http://sofar1994.github.io/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
+    
+    <category term="同余" scheme="http://sofar1994.github.io/tags/%E5%90%8C%E4%BD%99/"/>
     
   </entry>
   
