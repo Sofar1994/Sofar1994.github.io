@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Go Golang PHP Sofar 算法">
+    <meta name="keywords" content="byteFormat, Go Golang PHP Sofar 算法">
     <meta name="description" content="Write something interesting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | sofar的小站</title>
+    <title>byteFormat | sofar的小站</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpeg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpeg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">byteFormat</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-16
+                    2021-06-11
                 </div>
                 
 
@@ -480,19 +480,113 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h3 id="简单版格式化byte"><a href="#简单版格式化byte" class="headerlink" title="简单版格式化byte"></a>简单版格式化byte</h3><pre class="line-numbers language-go" data-language="go"><code class="language-go">
+<span class="token keyword">package</span> bytefmt
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token keyword">import</span> <span class="token punctuation">(</span>
+	<span class="token string">"errors"</span>
+	<span class="token string">"strconv"</span>
+	<span class="token string">"strings"</span>
+	<span class="token string">"unicode"</span>
+<span class="token punctuation">)</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token keyword">type</span> ByteSize <span class="token builtin">float64</span>
+<span class="token keyword">const</span> <span class="token punctuation">(</span>
+	B 	ByteSize <span class="token operator">=</span> <span class="token number">1</span>
+	KB	ByteSize <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token punctuation">(</span><span class="token number">10</span> <span class="token operator">*</span> <span class="token boolean">iota</span><span class="token punctuation">)</span>
+	MB
+	GB
+	TB
+	PB
+	EB
+<span class="token punctuation">)</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<span class="token comment">// 返回的是float64，如果想加后缀就要自己动动手哦</span>
+<span class="token keyword">var</span> shortUnitMap <span class="token operator">=</span> <span class="token keyword">map</span><span class="token punctuation">[</span>ByteSize<span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span>
+	B<span class="token punctuation">:</span>  <span class="token string">"B"</span><span class="token punctuation">,</span>
+	KB<span class="token punctuation">:</span> <span class="token string">"KB"</span><span class="token punctuation">,</span>
+	MB<span class="token punctuation">:</span> <span class="token string">"MB"</span><span class="token punctuation">,</span>
+	GB<span class="token punctuation">:</span> <span class="token string">"GB"</span><span class="token punctuation">,</span>
+	TB<span class="token punctuation">:</span> <span class="token string">"TB"</span><span class="token punctuation">,</span>
+	PB<span class="token punctuation">:</span> <span class="token string">"PB"</span><span class="token punctuation">,</span>
+	EB<span class="token punctuation">:</span> <span class="token string">"EB"</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<span class="token keyword">var</span> unitMap <span class="token operator">=</span> <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span>ByteSize<span class="token punctuation">{</span>
+	<span class="token string">"B"</span><span class="token punctuation">:</span>     B<span class="token punctuation">,</span>
+	<span class="token string">"BYTE"</span><span class="token punctuation">:</span>  B<span class="token punctuation">,</span>
+	<span class="token string">"BYTES"</span><span class="token punctuation">:</span> B<span class="token punctuation">,</span>
+
+	<span class="token string">"KB"</span><span class="token punctuation">:</span>        KB<span class="token punctuation">,</span>
+	<span class="token string">"KILOBYTE"</span><span class="token punctuation">:</span>  KB<span class="token punctuation">,</span>
+	<span class="token string">"KILOBYTES"</span><span class="token punctuation">:</span> KB<span class="token punctuation">,</span>
+
+	<span class="token string">"MB"</span><span class="token punctuation">:</span>        MB<span class="token punctuation">,</span>
+	<span class="token string">"MEGABYTE"</span><span class="token punctuation">:</span>  MB<span class="token punctuation">,</span>
+	<span class="token string">"MEGABYTES"</span><span class="token punctuation">:</span> MB<span class="token punctuation">,</span>
+
+	<span class="token string">"GB"</span><span class="token punctuation">:</span>        GB<span class="token punctuation">,</span>
+	<span class="token string">"GIGABYTE"</span><span class="token punctuation">:</span>  GB<span class="token punctuation">,</span>
+	<span class="token string">"GIGABYTES"</span><span class="token punctuation">:</span> GB<span class="token punctuation">,</span>
+
+	<span class="token string">"TB"</span><span class="token punctuation">:</span>        TB<span class="token punctuation">,</span>
+	<span class="token string">"TERABYTE"</span><span class="token punctuation">:</span>  TB<span class="token punctuation">,</span>
+	<span class="token string">"TERABYTES"</span><span class="token punctuation">:</span> TB<span class="token punctuation">,</span>
+
+	<span class="token string">"PB"</span><span class="token punctuation">:</span>        PB<span class="token punctuation">,</span>
+	<span class="token string">"PETABYTE"</span><span class="token punctuation">:</span>  PB<span class="token punctuation">,</span>
+	<span class="token string">"PETABYTES"</span><span class="token punctuation">:</span> PB<span class="token punctuation">,</span>
+
+	<span class="token string">"EB"</span><span class="token punctuation">:</span>       EB<span class="token punctuation">,</span>
+	<span class="token string">"EXABYTE"</span><span class="token punctuation">:</span>  EB<span class="token punctuation">,</span>
+	<span class="token string">"EXABYTES"</span><span class="token punctuation">:</span> EB<span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token function">Parse</span><span class="token punctuation">(</span>s <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>ByteSize<span class="token punctuation">,</span> <span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	s <span class="token operator">=</span> strings<span class="token punctuation">.</span><span class="token function">TrimSpace</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+	split <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+	<span class="token keyword">for</span> i<span class="token punctuation">,</span> r <span class="token operator">:=</span> <span class="token keyword">range</span> s <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token operator">!</span>unicode<span class="token punctuation">.</span><span class="token function">IsDigit</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			split <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>split<span class="token punctuation">,</span> strings<span class="token punctuation">.</span><span class="token function">TrimSpace</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span><span class="token punctuation">:</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+			split <span class="token operator">=</span> <span class="token function">append</span><span class="token punctuation">(</span>split<span class="token punctuation">,</span> strings<span class="token punctuation">.</span><span class="token function">TrimSpace</span><span class="token punctuation">(</span><span class="token function">string</span><span class="token punctuation">(</span>s<span class="token punctuation">[</span>i<span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+			<span class="token keyword">break</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token function">len</span><span class="token punctuation">(</span>split<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">2</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">,</span> errors<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token string">"Unrecognized size suffix "</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	unit<span class="token punctuation">,</span> ok <span class="token operator">:=</span> unitMap<span class="token punctuation">[</span>strings<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span>split<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+	<span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">,</span> errors<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token string">"Unrecognized size suffix "</span> <span class="token operator">+</span> split<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	value<span class="token punctuation">,</span> err <span class="token operator">:=</span> strconv<span class="token punctuation">.</span><span class="token function">ParseFloat</span><span class="token punctuation">(</span>split<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">64</span><span class="token punctuation">)</span>
+	<span class="token keyword">if</span> err <span class="token operator">!=</span> <span class="token boolean">nil</span> <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">,</span> err
+	<span class="token punctuation">}</span>
+
+	byteSize <span class="token operator">:=</span> <span class="token function">ByteSize</span><span class="token punctuation">(</span>value <span class="token operator">*</span> <span class="token function">float64</span><span class="token punctuation">(</span>unit<span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> byteSize<span class="token punctuation">,</span> <span class="token boolean">nil</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>b ByteSize<span class="token punctuation">)</span> <span class="token function">Format</span><span class="token punctuation">(</span>format <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">float64</span><span class="token punctuation">,</span><span class="token builtin">error</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">return</span> b<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span>format<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">func</span> <span class="token punctuation">(</span>b ByteSize<span class="token punctuation">)</span> <span class="token function">format</span><span class="token punctuation">(</span>format <span class="token builtin">string</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">float64</span><span class="token punctuation">,</span><span class="token builtin">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+	format <span class="token operator">=</span> strings<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span>strings<span class="token punctuation">.</span><span class="token function">TrimSpace</span><span class="token punctuation">(</span>format<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+	unit<span class="token punctuation">,</span> ok <span class="token operator">:=</span> unitMap<span class="token punctuation">[</span>strings<span class="token punctuation">.</span><span class="token function">ToUpper</span><span class="token punctuation">(</span>format<span class="token punctuation">)</span><span class="token punctuation">]</span>
+	<span class="token keyword">if</span> <span class="token operator">!</span>ok <span class="token punctuation">{</span>
+		<span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">,</span> errors<span class="token punctuation">.</span><span class="token function">New</span><span class="token punctuation">(</span><span class="token string">"Unrecognized size suffix "</span> <span class="token operator">+</span> format<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	byteSize <span class="token operator">:=</span> <span class="token function">ByteSize</span><span class="token punctuation">(</span>b <span class="token operator">/</span> unit<span class="token punctuation">)</span>
+	<span class="token keyword">return</span> <span class="token function">float64</span><span class="token punctuation">(</span>byteSize<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">nil</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -509,7 +603,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">sofar</a>
+                    <a href="/about" rel="external nofollow noreferrer">Sofar</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -519,7 +613,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Sofar1994.github.io/hello-world/">http://Sofar1994.github.io/hello-world/</a>
+                    <a href="http://Sofar1994.github.io/byteformat/">http://Sofar1994.github.io/byteformat/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -532,7 +626,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">sofar</a>
+                    <a href="/about" target="_blank">Sofar</a>
                     !
                 </span>
             </div>
@@ -599,7 +693,7 @@
         repo: 'blog-comments',
         owner: 'Sofar1994',
         admin: null,
-        id: '2021-04-16T11-16-10',
+        id: '2021-06-11T18-57-22',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -627,66 +721,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/git-commands/">
+                <a href="/byteformat/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpeg" class="responsive-img" alt="小技巧:git常用命令">
+                        <img src="/medias/featureimages/1.jpeg" class="responsive-img" alt="byteFormat">
                         
-                        <span class="card-title">小技巧:git常用命令</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            git常用命令汇总
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-16
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Git/" class="post-category">
-                                    Git
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-                        <span class="chip bg-color">小技巧</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/goroutine/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpeg" class="responsive-img" alt="小技巧:Go并发编程示例">
-                        
-                        <span class="card-title">小技巧:Go并发编程示例</span>
+                        <span class="card-title">byteFormat</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -697,7 +743,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>1970-01-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-11
                             </span>
                         <span class="publish-author">
                             
@@ -707,13 +753,43 @@
                         </span>
                     </div>
                 </div>
+
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/">
-                        <span class="chip bg-color">小技巧</span>
-                    </a>
-                    
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/factorymethod/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpeg" class="responsive-img" alt="FactoryMethod">
+                        
+                        <span class="card-title">FactoryMethod</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Sofar
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>

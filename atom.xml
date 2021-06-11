@@ -6,7 +6,7 @@
   <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
   
   <link href="http://sofar1994.github.io/"/>
-  <updated>2021-06-02T09:06:56.265Z</updated>
+  <updated>2021-06-11T10:59:49.063Z</updated>
   <id>http://sofar1994.github.io/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>byteFormat</title>
+    <link href="http://sofar1994.github.io/byteformat/"/>
+    <id>http://sofar1994.github.io/byteformat/</id>
+    <published>2021-06-11T10:57:22.000Z</published>
+    <updated>2021-06-11T10:59:49.063Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;简单版格式化byte&quot;&gt;&lt;a href=&quot;#简单版格式化byte&quot; class=&quot;headerlink&quot; title=&quot;简单版格式化byte&quot;&gt;&lt;/a&gt;简单版格式化byte&lt;/h3&gt;&lt;pre class=&quot;line-numbers language-go&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>FactoryMethod</title>
+    <link href="http://sofar1994.github.io/factorymethod/"/>
+    <id>http://sofar1994.github.io/factorymethod/</id>
+    <published>2021-06-08T04:26:55.000Z</published>
+    <updated>2021-06-08T04:26:55.340Z</updated>
+    
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>leetcode-303-区域和检索 - 数组不可变</title>
