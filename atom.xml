@@ -6,7 +6,7 @@
   <link href="http://sofar1994.github.io/atom.xml" rel="self"/>
   
   <link href="http://sofar1994.github.io/"/>
-  <updated>2021-06-11T10:59:49.063Z</updated>
+  <updated>2021-07-16T03:36:53.496Z</updated>
   <id>http://sofar1994.github.io/</id>
   
   <author>
@@ -17,11 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>面经(中文未来&amp;&amp;百度)</title>
+    <link href="http://sofar1994.github.io/mian-jing-zhong-wen-wei-lai/"/>
+    <id>http://sofar1994.github.io/mian-jing-zhong-wen-wei-lai/</id>
+    <published>2021-07-07T06:46:09.000Z</published>
+    <updated>2021-07-16T03:36:53.496Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;中文未来&quot;&gt;&lt;a href=&quot;#中文未来&quot; class=&quot;headerlink&quot; title=&quot;中文未来&quot;&gt;&lt;/a&gt;中文未来&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;服务器间文件传输方式&lt;/p&gt;
+&lt;p&gt; scp 传输&lt;/p&gt;
+&lt;p&gt; rsync</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>byteFormat</title>
     <link href="http://sofar1994.github.io/byteformat/"/>
     <id>http://sofar1994.github.io/byteformat/</id>
     <published>2021-06-11T10:57:22.000Z</published>
-    <updated>2021-06-11T10:59:49.063Z</updated>
+    <updated>2021-06-29T05:40:30.527Z</updated>
     
     
       
